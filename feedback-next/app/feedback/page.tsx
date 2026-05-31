@@ -1,57 +1,20 @@
-"use client"
-
-// revalidate path
-
-import { useEffect, useState } from "react";
 import formSubmit from "../actions/formSubmit";
 import getFeedbacks from "../actions/getFeedbacks";
+import Button from "../components/Button";
 
 interface Feedback{
+    id: number,
     name: string,
     email: string,
     message: string
 }
 
-function Feedback()
+async function Feedback()
 {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-
-    const [data, setData] = useState<Feedback[]>([]);
-
-
-    async function getData()
-    {
-        const res:Feedback[] = await getFeedbacks();
-        setData(res);
-    }
-    useEffect(() => {
-        getData();
-    },[]);
-
-    function handleSubmit(e:any)
-    {
-        e.preventDefault();
-
-        const obj = {
-            name,
-            email,
-            message
-        }
-
-        formSubmit(obj);
-
-        setName("");
-        setEmail("");
-        setMessage("")
-
-        getData();
-    }
-
+    const data = await getFeedbacks();
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form action={formSubmit}>
 
             <label htmlFor="name">
                 Name : 
@@ -60,8 +23,7 @@ function Feedback()
             type="text"
             name="name"
             id="name"
-            onChange={(e) => setName(e.target.value)}
-            value = {name}>
+            >
             </input>
 
             <br></br>
@@ -76,8 +38,7 @@ function Feedback()
             type="text"
             name="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value = {email}>
+            >
             </input>
 
             <br></br>
@@ -90,28 +51,25 @@ function Feedback()
             <textarea
             name="message"
             id="message"
-            onChange={(e) => setMessage(e.target.value)}
-            value = {message}>
+            >
             </textarea>
 
             <br></br>
             <br></br>
 
-
-            <button type="submit">Submit</button>
+            <Button/>
+            {/* <button type="submit">Submit</button> */}
         </form>
 
         {/* feedack display */}
         
         {
-            data.map((feedback:Feedback, idx) => (
-                <div key={idx}>
+            data.map((feedback:Feedback, idx:any) => (
+                <div key={feedback.id}>
                     <p>{feedback.name}</p>
                     <p>{feedback.email}</p>
                     <p>{feedback.message}</p>
-                    <br/>
-                    <br/>
-                    
+                    <br/><br/>
                 </div>
             ))
         }
@@ -120,3 +78,22 @@ function Feedback()
 }
 
 export default Feedback;
+
+
+
+
+// 1. implement useFormStatus
+// 2. Store form data in database using postgreSQL dbms
+// 3. Fetch the data from DB and display it in the UI
+
+// create .env.local
+// npm install pg
+// 
+// 
+
+// app/lib/db.js
+// import {Pool} from 'pg
+
+// const pool = new Pool({host_name : process.env}, db_name)
+
+// connectionString
