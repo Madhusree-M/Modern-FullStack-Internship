@@ -31,7 +31,7 @@ async function Feedback()
 
 
 
-            <label htmlFor="name">
+            <label htmlFor="email">
                 Email : 
             </label>
             <input
@@ -45,7 +45,7 @@ async function Feedback()
             <br></br>
 
 
-            <label htmlFor="name">
+            <label htmlFor="message">
                 Feedback : 
             </label>
             <textarea
@@ -92,7 +92,7 @@ export default Feedback;
 // 
 
 // app/lib/db.js
-// import {Pool} from 'pg
+// import {Pool} from 'pg'
 
 // const pool = new Pool({host_name : process.env}, db_name)
 
