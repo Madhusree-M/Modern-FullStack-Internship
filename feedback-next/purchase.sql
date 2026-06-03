@@ -86,3 +86,13 @@ select * from customers c full outer join payment p
 on c.customer_id = p.customer_id;
 
 -- design an er diagram for students course enrollment 
+
+-- Online Food Ordering system -> customer , restaurants , menu card , delivery partner , order
+
+-- College library management system -> Students, book, issue report, author, librarian
+
+-- Movie ticket booking system -> cust , movie , theatre , show , booking
+
+-- Gym Membership 
+
+-- Student expense tracker
