@@ -6,6 +6,9 @@
 // import Navbar from "./components/Navbar";
 // import Counter from "./components/Counter";
 import Contact from "./components/Contact";
+import Counter from "./components/Counter";
+import ProductList from "./components/ProductList";
+import Cart from "./components/Cart";
 // import Users from "./components/Users";
 // import Products from "./components/Products";
 
@@ -33,13 +36,18 @@ function App()
 {
   return (
     <>
-      
-
-      
+    <ProductList/>
+    <Cart></Cart>
+    
       {/* <Users/> */}
       {/* <Products/> */}
-      <Contact/>
+      {/* <Counter/> */}
     </>
   )
 }
 export default App;
+
+
+// create component porodcts -> name, price,
+// disp multiplr prods
+// add button -> add to cart

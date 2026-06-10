@@ -68,7 +68,7 @@ export default function Feedbacks()
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Enter your feedback..."
             className="m-5 p-5 border rounded-md"
-            rows= {5}
+            rows= {2}
             cols={80}
             ></textarea>
 
