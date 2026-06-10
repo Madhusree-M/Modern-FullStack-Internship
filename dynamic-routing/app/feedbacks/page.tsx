@@ -38,7 +38,7 @@ export default function Feedbacks()
     //     });
 
     //     getData();
-    }
+    // }
 
     async function deleteData(id: number)
     {
